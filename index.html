@@ -1,23 +1,21 @@
 <html>
 <head>
-	<title>Valens </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Valens</title>
+	<!-- http://translate.google.com/#la/en/valens -->
+	<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<p>Just going to see if I can use Jasmine JS without jasmine-html.js </p>
+<textarea name="editor" id="editor">
+The beauty of a <textarea>
+Is that I can put < and > and & signs in 
+here without any problems.
+I just cannot write the corressponding  /> tag...</textarea>
 
-
-	<script type="text/javascript" src="jasmine/lib/jasmine-1.3.1/jasmine.js"></script>
-
-	<script>
-		console.dir(jasmine);
-
-		describe( "Just a little test", function () {
-		    describe( "Just testing a basic expectation", function () {
-		    	expect(3).toEqual(2)
-		    	console.log('expectation')
-		    });
-		});
-	</script>
+<script>
+	var text = document.getElementById('editor').innerHTML;
+	console.log(text)
+</script>
 
 </body>
 </html>
