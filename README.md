@@ -1,8 +1,8 @@
-# Ab initio
+# Principium
 
-### A Simple Text Editor
+## A Simple Text Editor
 
-#### Define Basic Features
+### Define Basic Features
 
 - New Text "File" (record)
 - Input Text in textarea
@@ -10,8 +10,46 @@
 - Save Text Server Side to FS/Data Store
 - Display confirmation in Browser with URL of record
 
+### Which Test Should We Write First?
+
+**Terminology** - For simplicity I refer to the Text data as a "**record**".
+(we *could* call it a "File" or "Document" but I want to keep it *generic*)
+
+Lets start with server-side creating the *new* file/record 
+(if a filename/record is *not* specified)
+
+At the simplest level we need to save the record to the filesystem (**FS**).
+Not all [PAAS](http://en.wikipedia.org/wiki/Platform_as_a_service) allow 
+*direct* fs access. (Erm, cough! @heroku!)
+So the first we need to test if **fs** is available!
+
+### Which Testing Framework?
+
+I would ***love*** to have *time* to write my own unit testing framework...!
+I might be forced to use a framework like mocha or jasmine
+later on but we can cross that bridge when it comes.
+
+In the interest of minimizing dependencies, I will and use the 
+[**assert**](http://nodejs.org/api/assert.html) 
+(node core) module. 
+
+### Features of a Unit Testing Framework
+
+A few features of a Unit Tesing Framework:
+
+- **Generic** (test any code regardless of platform)
+- Run in the **Command Line** *or* **Browser** (same results for both)
+- Easy to **Write** Tests (I want non-technical people to write tests!)
+- Easy to **Read** Tests (Anyone can read the test name and results)
+- Timer for *Each* Test (to detect if things are slowing down when refactoring)
+- Display Progress over time
+
+Some of these features already exist, others not yet...
 
 
+- - -
+
+## Tangental 
 
 ### Which FONT for Programming?
 
@@ -30,3 +68,12 @@ http://stackoverflow.com/questions/2588181/canvas-is-stretched-when-using-css-bu
 
 http://stackoverflow.com/questions/3549250/highlighting-a-piece-of-string-in-a-textarea
 
+### Node Assert
+
+- Official Documentation: http://nodejs.org/api/assert.html
+
+### Self Documenting Code
+
+My biggest annoyance with [JSDoc](http://usejsdoc.org) is that 
+it requires ***Java***! :-(
+Why can't we just parse the .js file to find comments and 
