@@ -64,7 +64,7 @@ describe('Node.js Environment Checks', function(){
         }); // end fs.readFile
     })
 
-    it('CREATE ./test/tmp/+timestamp.txt (temporary) file', function(){
+    it('DOMAIN CREATE ./test/tmp/+timestamp.txt (temporary) file', function(){
         // setup
         var timestamp   = new Date().getTime(),
             testDir     = "./test/tmp/";
@@ -77,12 +77,12 @@ describe('Node.js Environment Checks', function(){
             fs.readdir(testDir, function(err, list) {
                 // console.log(list)
                 assert.isTrue(list.indexOf(newFile) > -1)
-                
-                d.run(function() {
-                    fs.readFile(newFilePath, 'utf8', function read(err, data) {
-                        assert.isTrue(String(data) === "hello!");
-                    })
-                });
+
+                // d.run(function() {
+                //     fs.readFile(newFilePath, 'utf8', function read(err, data) {
+                //         assert.isTrue(String(data) === "hello!");
+                //     })
+                // });
 
             });
         });
