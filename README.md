@@ -21,9 +21,9 @@ Lets start with server-side creating the *new* file/record
 At the simplest level we need to save the record to the filesystem (**FS**). 
 <br />Not all [PAAS](http://en.wikipedia.org/wiki/Platform_as_a_service) allow 
 *direct* fs access. (Erm, cough! @heroku!)
-So the first we need to test if **fs** is available!
+So the first we need to test if **fs** (write) is available!
 
-#### Test:
+#### Basic FS Tests:
 
 - read from the current working directory
 - read specific (predefined) file

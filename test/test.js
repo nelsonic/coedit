@@ -59,7 +59,7 @@ describe('Node.js Environment Checks', function(){
         }); // end fs.readFile
     })
 
-    xit('CREATE ./test/tmp/+timestamp.txt (temporary) file', function(){
+    it('CREATE ./test/tmp/+timestamp.txt (temporary) file', function(){
         // setup
         var timestamp   = new Date().getTime(),
             testDir     = "./test/tmp/";
@@ -74,14 +74,14 @@ describe('Node.js Environment Checks', function(){
                 assert.isTrue(list.indexOf(newFile) > -1)
                 fs.readFile(newFilePath, 'utf8', function read(err, data) {
                     assert.isTrue(String(data) === "hello!");
-                    fs.unlink(newFilePath, function(err, data) {
-                        if (err) throw err;
-                        // console.log("Deleted: "+newFile)
-                        fs.readdir(testDir, function(err, list) {
-                            if (err) throw err;
-                            assert.isTrue(list.indexOf(newFilePath) === -1);
-                        });
-                    })
+                    // fs.unlink(newFilePath, function(err, data) {
+                    //     if (err) throw err;
+                    //     // console.log("Deleted: "+newFile)
+                    //     fs.readdir(testDir, function(err, list) {
+                    //         if (err) throw err;
+                    //         assert.isTrue(list.indexOf(newFilePath) === -1);
+                    //     });
+                    // })
                 })
             });
         });
