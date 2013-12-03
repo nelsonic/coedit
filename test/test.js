@@ -2,7 +2,12 @@ var chai = require('chai');
 var assert = chai.assert; 
 // var C = require('../cash.js');  // our module
 var fs = require('fs');
+var domain = require('domain');
+var d = domain.create();
 
+d.on('error', function(err) {
+  console.error(err);
+});
 
 // describe('Another set of tests', function(){
 //   describe('my tests', function(){
@@ -72,17 +77,13 @@ describe('Node.js Environment Checks', function(){
             fs.readdir(testDir, function(err, list) {
                 // console.log(list)
                 assert.isTrue(list.indexOf(newFile) > -1)
-                fs.readFile(newFilePath, 'utf8', function read(err, data) {
-                    assert.isTrue(String(data) === "hello!");
-                    // fs.unlink(newFilePath, function(err, data) {
-                    //     if (err) throw err;
-                    //     // console.log("Deleted: "+newFile)
-                    //     fs.readdir(testDir, function(err, list) {
-                    //         if (err) throw err;
-                    //         assert.isTrue(list.indexOf(newFilePath) === -1);
-                    //     });
-                    // })
-                })
+                
+                d.run(function() {
+                    fs.readFile(newFilePath, 'utf8', function read(err, data) {
+                        assert.isTrue(String(data) === "hello!");
+                    })
+                });
+
             });
         });
     })

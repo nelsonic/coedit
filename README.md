@@ -10,7 +10,7 @@
 - Save Text Server Side to FS/Data Store
 - Display confirmation in Browser with URL of record
 
-### Which Test Should We Write First?
+### Which Test Should We *Write* First?
 
 **Terminology** - For simplicity I refer to the Text data as a "**record**".
 (we *could* call it a "File" or "Document" but I want to keep it *generic*)
@@ -25,18 +25,26 @@ So the first we need to test if **fs** (write) is available!
 
 #### Basic FS Tests:
 
-- read from the current working directory
-- read specific (predefined) file
-- write/update specific file
-- ~~create ./test/**tmp** (temporary directory)~~
+- **read** from the current working directory
+- **read** specific (predefined) file
+- **write**/update specific file
+- ~~create ./test/**tmp** (temporary directory)~~ ()
 - **create** a new file and write to it
 
+
+Travis gives error: ** Uncaught Error: ENOENT, open **
+see: https://travis-ci.org/nelsonic/valens/builds/14895407
+
+Spent ages trying to solve it. Decided to use a domain:
+http://shapeshed.com/uncaught-exceptions-in-node/
 
 
 References
 
 - fs.mkdir: http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback
 
+
+- - -
 
 ### Which Testing Framework?
 
