@@ -1,4 +1,4 @@
-# Principium
+# Principium [![Build Status](https://travis-ci.org/nelsonic/valens.png?branch=master)](https://travis-ci.org/nelsonic/valens) [![Dependencies](https://david-dm.org/nelsonic/valens.png)](https://david-dm.org/nelsonic/valens)
 
 ## A Simple Text Editor
 
