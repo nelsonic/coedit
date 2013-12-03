@@ -26,12 +26,7 @@ So the first we need to test if **fs** is available!
 ### Which Testing Framework?
 
 I would ***love*** to have *time* to write my own unit testing framework...!
-I might be forced to use a framework like mocha or jasmine
-later on but we can cross that bridge when it comes.
-
-In the interest of minimizing dependencies, I will and use the 
-[**assert**](http://nodejs.org/api/assert.html) 
-(node core) module. 
+I've used all the major Node.js testing frameworks and found all lacking! :-(
 
 ### Features of a Unit Testing Framework
 
@@ -43,13 +38,26 @@ A few features of a Unit Tesing Framework:
 - Easy to **Read** Tests (Anyone can read the test name and results)
 - Timer for *Each* Test (to detect if things are slowing down when refactoring)
 - Display Progress over time
+- Show **Code Coverage** on feature/functional basis and as a whole
 
-Some of these features already exist, others not yet...
+Some of these features already exist, others not yet ...
+
+In the interest of getting *started* I'm going to use *Mocha* because it allows
+ us to use **Istanbul** code coverage. This is *rudimentary* (IMO) but its 
+the best we *have* till we *build* a better solution.... 
+
+If you don't know Mocha, see: https://github.com/nelsonic/learn-mocha
+
 
 
 - - -
 
 ## Tangental 
+
+### Project Name
+
+if you're wondering why I called this project "Valens"
+see: http://translate.google.com/#la/en/valens
 
 ### Which FONT for Programming?
 

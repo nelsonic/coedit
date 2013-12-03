@@ -1,0 +1,17 @@
+{
+  "name": "valens",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nelsonic/valens.git"
+  },
+  "description": "Valens is a Work in Progress not ready for anyone/anything!",
+  "author": "https://twitter.com/nelsonic",
+  "version": "0.0.1",
+  "devDependencies": {
+    "mocha": "*",
+    "chai":"*"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
