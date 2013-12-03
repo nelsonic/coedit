@@ -12,6 +12,6 @@
     "chai":"*"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -R spec"
   }
 }

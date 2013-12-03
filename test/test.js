@@ -1,32 +1,51 @@
 var chai = require('chai');
 var assert = chai.assert; 
 // var C = require('../cash.js');  // our module
+var fs = require('fs');
 
 describe('Node.js Environment Checks', function(){
   describe('Basic IO', function(){
-    // it('should have a getChange Method', function(){
-    //   assert.equal(typeof C, 'object');
-    //   assert.equal(typeof C.getChange, 'function');
-    // })
+    it('Should be able to see files in current working directory (CWD)', function(){
+        var dir = process.cwd();
+        fs.readdir(dir, function(err, list) {
+            // console.log(list);
+            assert.isTrue(list.length > 0);
+        });
+    })
 
-    // it('getChange(210,300) should equal [50,20,20]', function(){
-    //     assert.deepEqual(C.getChange(210,300), [50, 20, 20]);
-    // }) // use .deepEqual for arrays see: http://stackoverflow.com/questions/13225274/
+    it('READ ./test/runCount.txt & runCount is number', function(){
+        fs.readFile('./test/runCount.txt', 'utf8', function read(err, data) {
+            if (err) {
+                throw err;
+            }
+            // console.log(data);
+            var runCount = parseInt(data,10)
+            assert.isTrue( typeof runCount === 'number');
+        });
+    })
 
-    // it('getChange(486,1000) should equal [500, 10, 2, 2]', function(){
-    //     assert.deepEqual(C.getChange(486,1000), [500, 10, 2, 2]);
-    // })
+    it('WRITE to (increment) ./test/runCount.txt', function(){
+        var runCountFile = "./test/runCount.txt";
+        fs.readFile(runCountFile, 'utf8', function read(err, data) {
+            if (err) {
+                throw err;
+            }
+            var runCount = parseInt(data,10);
+            // increment the runCount
+            fs.writeFile(runCountFile, runCount + 1, function(err) {
+                if(err) {
+                    console.log(err);
+                } else {
+                    fs.readFile(runCountFile, 'utf8', function read(err, data) {
+                        var runCountIncremented = parseInt(data,10);
+                        console.log("Run Count Updated: "+runCount);
+                        // confirm we have incremented the runCount:
+                        assert.isTrue(runCountIncremented === runCount + 1);
 
-    // it('getChange(1487,10000) should equal [5000, 2000, 1000, 500, 10, 2, 1 ]', function(){
-    //     assert.deepEqual(C.getChange(1487,10000), [5000, 2000, 1000, 500, 10, 2, 1 ]);
-    // })
-
-    // // try to force an error:
-    // it('getChange("random","str") to return [] (empty array)', function(){
-    //     // assert.throw(C.getChange("random","str"), Error, "totalPayable and cashPaid MUST both be numbers");
-    //     assert.deepEqual(C.getChange("random","str"), []);
-
-    // })
-
+                    }); // end inner fs.readFile
+                } // end else
+            }); // end fs.writeFile
+        }); // end fs.readFile
+    })
   })
 }) 
