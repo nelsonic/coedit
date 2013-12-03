@@ -19,10 +19,24 @@ Lets start with server-side creating the *new* file/record
 (if a filename/record is *not* specified)
 
 At the simplest level we need to save the record to the filesystem (**FS**). 
-<br />
-Not all [PAAS](http://en.wikipedia.org/wiki/Platform_as_a_service) allow 
+<br />Not all [PAAS](http://en.wikipedia.org/wiki/Platform_as_a_service) allow 
 *direct* fs access. (Erm, cough! @heroku!)
 So the first we need to test if **fs** is available!
+
+#### Test:
+
+- read from the current working directory
+- read specific (predefined) file
+- write/update specific file
+- ~~create ./test/**tmp** (temporary directory)~~
+- **create** a new file and write to it
+
+
+
+References
+
+- fs.mkdir: http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback
+
 
 ### Which Testing Framework?
 
@@ -48,8 +62,6 @@ In the interest of getting *started* I'm going to use *Mocha* because it allows
 the best we *have* till we *build* a better solution.... 
 
 If you don't know Mocha, see: https://github.com/nelsonic/learn-mocha
-
-
 
 - - -
 
