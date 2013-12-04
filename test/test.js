@@ -60,15 +60,12 @@ describe('Node.js Environment Checks', function(){
 
     it('CREATE (temporary) file tests create/write access to FS', function(){
         // setup
-        var timestamp   = new Date().getTime(),
-            testDir     = __dirname+"/tmp/";
-            newFile     = timestamp+".txt";
-            newFilePath = testDir+newFile;
+        var newFile = new Date().getTime() +".txt";
 
-        fs.writeFile(newFilePath, "hello!", function (err) {
-            if (err) throw err;
+        fs.writeFile(newFile, "hello!", function (err) {
+            if (err) console.log(err);
             // console.log("Created file: "+newFile);
-            fs.readdir(testDir, function(err, list) {
+            fs.readdir(__dirname, function(err, list) {
                 // console.log(list)
                 assert.isTrue(list.indexOf(newFile) > -1)
                 // fs.unlink(newFilePath, function(err, data) {

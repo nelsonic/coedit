@@ -40,6 +40,10 @@ http://shapeshed.com/uncaught-exceptions-in-node/
 
 But Travis does not *like* the idea of creating a new file...
 
+See: https://travis-ci.org/nelsonic/valens/builds/14948654
+
+What if we simplify the test...?
+Create the (temporary file in the current working directory) **__dirname**
 
 References
 
