@@ -89,8 +89,8 @@ describe('Node.js Environment Checks', function(){
             fs.readdir(__dirname, function(err, list) {
                 // console.log(list)
                 assert.isTrue(list.indexOf(newFile) > -1)
-                
-                fs.unlink(newFilePath, function(err, data) {
+
+                fs.unlink(newFile, function(err, data) {
                     if (err) throw err;
                     console.log('successfully deleted '+newFile);
                     // console.log("Deleted: "+newFile)

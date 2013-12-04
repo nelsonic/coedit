@@ -9,14 +9,15 @@ fs.writeFile(newFile, "hello!", function (err) {
     fs.readdir(__dirname, function(err, list) {
         // console.log(list)
         console.log(list.indexOf(newFile) > -1)
-        fs.unlinkSync(newFile);
-        console.log('successfully deleted '+newFile);
-        // console.log("Deleted: "+newFile)
-        fs.readdir(__dirname, function(err, list) {
+        fs.unlink(newFile, function(err, data) {
             if (err) throw err;
-            console.log(list.indexOf(newFile) === -1);
+            console.log('successfully deleted '+newFile);
+            // console.log("Deleted: "+newFile)
+            fs.readdir(__dirname, function(err, list) {
+                if (err) throw err;
+                console.log(list.indexOf(newFile) === -1);
+                // done()
+            });
         });
     });
 });
-
-console.log(__dirname);
