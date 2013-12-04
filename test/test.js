@@ -2,12 +2,12 @@ var chai = require('chai');
 var assert = chai.assert; 
 // var C = require('../cash.js');  // our module
 var fs = require('fs');
-var domain = require('domain');
-var d = domain.create();
+// var domain = require('domain');
+// var d = domain.create();
 
-d.on('error', function(err) {
-  console.error(err);
-});
+// d.on('error', function(err) {
+//   console.error(err);
+// });
 
 // describe('Another set of tests', function(){
 //   describe('my tests', function(){
@@ -64,7 +64,7 @@ describe('Node.js Environment Checks', function(){
         }); // end fs.readFile
     })
 
-    it('DOMAIN CREATE ./test/tmp/+timestamp.txt (temporary) file', function(){
+    it('CREATE ./test/tmp/+timestamp.txt (temporary) file', function(){
         // setup
         var timestamp   = new Date().getTime(),
             testDir     = __dirname+"/tmp/";
@@ -82,7 +82,7 @@ describe('Node.js Environment Checks', function(){
                     // console.log("Deleted: "+newFile)
                     fs.readdir(testDir, function(err, list) {
                         if (err) throw err;
-                        console.log(list.indexOf(newFilePath) === -1);
+                        assert.isTrue(list.indexOf(newFilePath) === -1);
                     });
                 })
             });
