@@ -57,7 +57,29 @@ describe('Node.js Environment Checks', function(){
         }); // end fs.readFile
     })
 
-    it('CREATE (temporary) file tests create/write access to FS', function(){
+    // it('CREATE (temporary) file tests create/write access to FS', function(done){
+    //     // setup
+    //     var newFile = new Date().getTime() +".txt";
+
+    //     fs.writeFile(newFile, "hello!", function (err) {
+    //         if (err) console.log(err);
+    //         // console.log("Created file: "+newFile);
+    //         fs.readdir(__dirname, function(err, list) {
+    //             // console.log(list)
+    //             assert.isTrue(list.indexOf(newFile) > -1)
+    //             fs.unlink(newFile, function(err, data) {
+    //                 if (err) throw err;
+    //                 // console.log("Deleted: "+newFile)
+    //                 fs.readdir(testDir, function(err, list) {
+    //                     if (err) throw err;
+    //                     assert.isTrue(list.indexOf(newFilePath) === -1);
+    //                     done();
+    //                 });
+    //             })
+    //         });
+    //     });
+    // })
+    it('CREATE (temporary) file tests create/write access to FS', function(done){
         // setup
         var newFile = new Date().getTime() +".txt";
 
@@ -67,13 +89,16 @@ describe('Node.js Environment Checks', function(){
             fs.readdir(__dirname, function(err, list) {
                 // console.log(list)
                 assert.isTrue(list.indexOf(newFile) > -1)
-                fs.unlinkSync(newFile);
-                console.log('successfully deleted '+newFile);
-                // console.log("Deleted: "+newFile)
-                fs.readdir(__dirname, function(err, list) {
+                
+                fs.unlink(newFilePath, function(err, data) {
                     if (err) throw err;
-                    assert.isTrue(list.indexOf(newFile) === -1);
-                    done();
+                    console.log('successfully deleted '+newFile);
+                    // console.log("Deleted: "+newFile)
+                    fs.readdir(__dirname, function(err, list) {
+                        if (err) throw err;
+                        assert.isTrue(list.indexOf(newFile) === -1);
+                        done()
+                    });
                 });
             });
         });
