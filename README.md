@@ -45,9 +45,13 @@ See: https://travis-ci.org/nelsonic/valens/builds/14948654
 What if we simplify the test...?
 Create the (temporary file in the current working directory) **__dirname**
 
+Test passes but temporary file does not get deleted...
+Submitted issue to Mocha: https://github.com/visionmedia/mocha/issues/1058
+
 References
 
 - fs.mkdir: http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback
+- fs.unlink: http://nodejs.org/docs/latest/api/fs.html#fs_fs_unlink_path_callback
 
 
 - - -

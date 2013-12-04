@@ -68,14 +68,13 @@ describe('Node.js Environment Checks', function(){
             fs.readdir(__dirname, function(err, list) {
                 // console.log(list)
                 assert.isTrue(list.indexOf(newFile) > -1)
-                // fs.unlink(newFilePath, function(err, data) {
-                //     if (err) throw err;
-                //     // console.log("Deleted: "+newFile)
-                //     fs.readdir(testDir, function(err, list) {
-                //         if (err) throw err;
-                //         assert.isTrue(list.indexOf(newFilePath) === -1);
-                //     });
-                // })
+                fs.unlinkSync(newFile);
+                console.log('successfully deleted '+newFile);
+                // console.log("Deleted: "+newFile)
+                fs.readdir(__dirname, function(err, list) {
+                    if (err) throw err;
+                    assert.isTrue(list.indexOf(newFile) === -1);
+                });
             });
         });
     })
