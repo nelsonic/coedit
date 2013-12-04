@@ -48,6 +48,13 @@ Create the (temporary file in the current working directory) **__dirname**
 Test passes but temporary file does not get deleted...
 Submitted issue to Mocha: https://github.com/visionmedia/mocha/issues/1058
 
+Got a reply to my issue on GitHub.
+[travisjeffery](https://github.com/travisjeffery) recommended using the 
+**done()** method in my last test.
+
+Tried it. temporary file still present. :-(
+
+
 References
 
 - fs.mkdir: http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback

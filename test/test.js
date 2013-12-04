@@ -51,7 +51,6 @@ describe('Node.js Environment Checks', function(){
                         console.log("Run Count Updated: "+runCount +' | '+runCountIncremented);
                         // confirm we have incremented the runCount:
                         assert.isTrue(runCountIncremented === runCount + 1);
-
                     }); // end inner fs.readFile
                 } // end else
             }); // end fs.writeFile
@@ -74,6 +73,7 @@ describe('Node.js Environment Checks', function(){
                 fs.readdir(__dirname, function(err, list) {
                     if (err) throw err;
                     assert.isTrue(list.indexOf(newFile) === -1);
+                    done();
                 });
             });
         });
