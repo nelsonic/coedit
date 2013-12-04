@@ -32,11 +32,13 @@ So the first we need to test if **fs** (write) is available!
 - **create** a new file and write to it
 
 
-Travis gives error: ** Uncaught Error: ENOENT, open **
+Travis gives error: **Uncaught Error: ENOENT, open**
 see: https://travis-ci.org/nelsonic/valens/builds/14895407
 
-Spent ages trying to solve it. Decided to use a domain:
+Spent ages trying to solve it. Decided to try a domain:
 http://shapeshed.com/uncaught-exceptions-in-node/
+
+But Travis does not *like* the idea of creating a new file...
 
 
 References
