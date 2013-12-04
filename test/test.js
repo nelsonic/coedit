@@ -58,7 +58,7 @@ describe('Node.js Environment Checks', function(){
         }); // end fs.readFile
     })
 
-    it('CREATE ./test/tmp/+timestamp.txt (temporary) file', function(){
+    xit('CREATE ./test/tmp/+timestamp.txt (temporary) file', function(){
         // setup
         var timestamp   = new Date().getTime(),
             testDir     = __dirname+"/tmp/";
