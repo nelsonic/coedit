@@ -1,7 +1,7 @@
 // general playground
 var fs = require('fs');
 
-var CWD = __filename.substring(0, __filename.lastIndexOf('/'));
+var CWD = process.cwd(); // __filename.substring(0, __filename.lastIndexOf('/'));
 console.log(CWD);
 var newFile = new Date().getTime() +".txt",
     newFilePath = CWD+'/'+newFile;

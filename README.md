@@ -54,6 +54,9 @@ Got a reply to my issue on GitHub.
 
 Tried it. temporary file still present. :-(
 
+Turns out problem was because files were being created in CWD not script dir.
+fixed by changing **__dirname** to **process.cwd()**
+
 
 References
 

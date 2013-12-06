@@ -81,8 +81,8 @@ describe('Node.js Environment Checks', function(){
     // })
     it('CREATE (temporary) file tests create/write access to FS', function(done){
         // setup
-        var CWD = __filename.substring(0, __filename.lastIndexOf('/'));
-        // console.log(CWD);
+        var CWD = process.cwd(); //__filename.substring(0, __filename.lastIndexOf('/'));
+        console.log(CWD);
         var newFile = new Date().getTime() +".txt",
             newFilePath = CWD+'/'+newFile;
         fs.writeFile(newFilePath, "hello!", function (err) {
