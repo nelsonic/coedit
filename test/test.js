@@ -48,7 +48,7 @@ describe('Node.js Environment Checks', function(){
                 } else {
                     fs.readFile(runCountFile, 'utf8', function read(err, data) {
                         var runCountIncremented = parseInt(data,10);
-                        console.log("Run Count Updated: "+runCount +' | '+runCountIncremented);
+                        // console.log("Run Count Updated: "+runCount +' | '+runCountIncremented);
                         // confirm we have incremented the runCount:
                         assert.isTrue(runCountIncremented === runCount + 1);
                     }); // end inner fs.readFile
@@ -81,20 +81,22 @@ describe('Node.js Environment Checks', function(){
     // })
     it('CREATE (temporary) file tests create/write access to FS', function(done){
         // setup
-        var newFile = new Date().getTime() +".txt";
-
-        fs.writeFile(newFile, "hello!", function (err) {
+        var CWD = __filename.substring(0, __filename.lastIndexOf('/'));
+        // console.log(CWD);
+        var newFile = new Date().getTime() +".txt",
+            newFilePath = CWD+'/'+newFile;
+        fs.writeFile(newFilePath, "hello!", function (err) {
             if (err) console.log(err);
             // console.log("Created file: "+newFile);
-            fs.readdir(__dirname, function(err, list) {
+            fs.readdir(CWD, function(err, list) {
                 // console.log(list)
                 assert.isTrue(list.indexOf(newFile) > -1)
 
-                fs.unlink(newFile, function(err, data) {
+                fs.unlink(newFilePath, function(err, data) {
                     if (err) throw err;
-                    console.log('successfully deleted '+newFile);
+                    // console.log('successfully deleted '+newFile);
                     // console.log("Deleted: "+newFile)
-                    fs.readdir(__dirname, function(err, list) {
+                    fs.readdir(CWD, function(err, list) {
                         if (err) throw err;
                         assert.isTrue(list.indexOf(newFile) === -1);
                         done()
