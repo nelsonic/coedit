@@ -10,6 +10,11 @@
 - Save Text Server Side to FS/Data Store
 - Display confirmation in Browser with URL of record
 
+
+
+
+## History
+
 ### Which Test Should We *Write* First?
 
 **Terminology** - For simplicity I refer to the Text data as a "**record**".
@@ -30,7 +35,6 @@ So the first we need to test if **fs** (write) is available!
 - **write**/update specific file
 - ~~create ./test/**tmp** (temporary directory)~~ ()
 - **create** a new file and write to it
-
 
 Travis gives error: **Uncaught Error: ENOENT, open**
 see: https://travis-ci.org/nelsonic/valens/builds/14895407
