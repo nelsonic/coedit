@@ -30,17 +30,20 @@ describe('Node.js Environment Checks', function(){
             }
             var runCount = parseInt(data,10);
             // increment the runCount
-            fs.writeFile(runCountFile, runCount + 1, function(err) {
-                if(err) {
-                    console.log(err);
-                } else {
+            var newRunCount = runCount + 1;
+            fs.appendFile(runCountFile, ","+newRunCount, function(err) {
+                if (err) console.log(err);
+                // if(err) {
+                //     console.log(err);
+                // } else {
                     fs.readFile(runCountFile, 'utf8', function read(err, data) {
+                        
                         var runCountIncremented = parseInt(data,10);
                         // console.log("Run Count Updated: "+runCount +' | '+runCountIncremented);
                         // confirm we have incremented the runCount:
                         assert(runCountIncremented === runCount + 1);
                     }); // end inner fs.readFile
-                } // end else
+                // } // end else
             }); // end fs.writeFile
         }); // end fs.readFile
     })
