@@ -4,9 +4,12 @@ var V = require('../lib')
 
 describe('Valens Core', function(){
   describe('Module V', function(){
-    it('Module Should be an Object', function(){
-      assert.equal(typeof V, 'object');
-      // assert.equal(typeof C.getChange, 'function');
+    it('Should be an Object', function(){
+      assert.isTrue(typeof V === "object");
+    })
+
+    xit('V.read should display the record', function(){
+      // assert.equal(typeof V, 'string');
     })
   })
 }) // end node env checks

@@ -11,6 +11,13 @@
 - Display confirmation in Browser with URL of record
 
 
+#### Display a Record
+
+When navigating to the url corresponding to a existing record we 
+should see that record displayed in the editor.
+
+
+
 
 
 ## History
