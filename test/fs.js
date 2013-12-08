@@ -1,5 +1,4 @@
-var chai   = require('chai');
-var assert = chai.assert; 
+var assert = require('assert'); 
 var fs     = require('fs');
 
 describe('Node.js Environment Checks', function(){
@@ -8,7 +7,7 @@ describe('Node.js Environment Checks', function(){
         var dir = process.cwd();
         fs.readdir(dir, function(err, list) {
             // console.log(list);
-            assert.isTrue(list.length > 0);
+            assert(list.length > 0);
         });
     })
 
@@ -19,7 +18,7 @@ describe('Node.js Environment Checks', function(){
             }
             // console.log(data);
             var runCount = parseInt(data,10)
-            assert.isTrue( typeof runCount === 'number');
+            assert( typeof runCount === 'number');
         });
     })
 
@@ -39,7 +38,7 @@ describe('Node.js Environment Checks', function(){
                         var runCountIncremented = parseInt(data,10);
                         // console.log("Run Count Updated: "+runCount +' | '+runCountIncremented);
                         // confirm we have incremented the runCount:
-                        assert.isTrue(runCountIncremented === runCount + 1);
+                        assert(runCountIncremented === runCount + 1);
                     }); // end inner fs.readFile
                 } // end else
             }); // end fs.writeFile
@@ -51,26 +50,19 @@ describe('Node.js Environment Checks', function(){
         var CWD = process.cwd(); //__filename.substring(0, __filename.lastIndexOf('/'));
         // console.log(CWD);
         var newFile = new Date().getTime() +".txt",
-            newFilePath = CWD+'/'+newFile;
+            newFilePath = CWD+'/tmp/'+newFile;
         fs.writeFile(newFilePath, "hello!", function (err) {
             if (err) console.log(err);
             // console.log("Created file: "+newFile);
-            fs.readdir(CWD, function(err, list) {
+            fs.readdir(CWD+'/tmp/', function(err, list) {
                 // console.log(list)
-                assert.isTrue(list.indexOf(newFile) > -1)
+                assert(list.indexOf(newFile) > -1)
 
-                process.nextTick( function() {
-                    fs.unlink(newFilePath, function(err, data) {
-                        if (err) throw err;
-                        // console.log('successfully deleted '+newFile);
-                        // console.log("Deleted: "+newFile)
-                        // fs.readdir(CWD, function(err, list) {
-                        //     if (err) throw err;
-                        //     // assert.isTrue(list.indexOf(newFile) === -1);
-                            
-                        // });
-                    });
-                });
+                // process.nextTick( function() {
+                //     fs.unlink(newFilePath, function(err, data) {
+                //         if (err) throw err;
+                //     });
+                // });
                 done()
             });
         });

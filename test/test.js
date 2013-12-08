@@ -1,15 +1,15 @@
-var chai   = require('chai');
-var assert = chai.assert; 
-var V = require('../lib')
+var assert = require('assert');
+var V = require('../lib/index.js')
 
 describe('Valens Core', function(){
   describe('Module V', function(){
     it('Should be an Object', function(){
-      assert.isTrue(typeof V === "object");
+      assert(typeof V === "object");
+      // assert(typeof V.readFile === 'function');
     })
 
-    xit('V.read should display the record', function(){
-      // assert.equal(typeof V, 'string');
+    it('V.readFile should display the record', function(){
+      assert(typeof V.readFile === 'function');
     })
   })
 }) // end node env checks
