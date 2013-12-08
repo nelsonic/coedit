@@ -22,7 +22,7 @@ describe('Node.js Environment Checks', function(){
         });
     })
 
-    it('WRITE to (increment) ./test/runCount.txt', function(){
+    xit('WRITE to (increment) ./test/runCount.txt', function(){
         var runCountFile = "./test/runCount.txt";
         fs.readFile(runCountFile, 'utf8', function read(err, data) {
             if (err) {
