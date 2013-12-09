@@ -31,7 +31,10 @@ We need an agreed process for selecting 3rd party modules.
 
 - Is the module writtten in JavaScript (can we read the source)?
 - Does the module have 100% unit test coverage?
-- 
+- Is it stable?
+- Actively developed or collecting dust?
+
+Is it worth doing a flow/decision diagram for this...?
 
 ### Which Test Should We *Write* First?
 

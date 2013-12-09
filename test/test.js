@@ -10,6 +10,8 @@ describe('Valens Core', function(){
 
     it('V.readFile should display the record', function(){
       assert(typeof V.readFile === 'function');
+      // console.log(V.readFile("my text"))
+      assert(V.readFile('hello') === 'hello');
     })
   })
 }) // end node env checks
