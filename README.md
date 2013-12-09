@@ -22,6 +22,17 @@ should see that record displayed in the editor.
 
 ## History
 
+### Which 3rd Party Modules Can/Should We Use?
+
+As appealing as it is to build everything from scratch, it makes sense to use
+a *selection* of 3rd party modules that already cover many of our use cases.
+
+We need an agreed process for selecting 3rd party modules.
+
+- Is the module writtten in JavaScript (can we read the source)?
+- Does the module have 100% unit test coverage?
+- 
+
 ### Which Test Should We *Write* First?
 
 **Terminology** - For simplicity I refer to the Text data as a "**record**".
