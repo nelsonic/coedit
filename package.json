@@ -7,6 +7,10 @@
   "description": "Valens is a Work in Progress not ready for anyone/anything!",
   "author": "https://twitter.com/nelsonic",
   "version": "0.0.1",
+  "dependencies":{
+    "express":"*",
+    "ect":"*"
+  },
   "devDependencies": {
     "mocha": "*",
     "chai":"*"

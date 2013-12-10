@@ -10,6 +10,13 @@
 - Save Text Server Side to FS/Data Store
 - Display confirmation in Browser with URL of record
 
+#### App Should Accept HTTP Connections
+
+A GET request to / (root url) should return the default ("home") page.
+
+
+
+
 
 #### Display a Record
 
@@ -22,6 +29,30 @@ should see that record displayed in the editor.
 
 ## History
 
+### Which Template Engine/Language Should We Use?
+
+While [**Jade**](http://jade-lang.com/) (the Express.js default engine) 
+is very *elegant*, it has several glaring issues:
+
+- (Steep) **Learning Curve** for New Developers (new syntax to learn)
+- **Slow**er than alternatives (see: http://ectjs.com/#benchmark)
+- **Server Only** (not *designed* for use in client-side)
+
+I went searching for *alternative* view engines and decided on 
+[**DustJS**]()
+http://spalatnik.com/blog/?p=54
+
+Used [ECT](http://ectjs.com/) but it allows too much ***logic in views***
+which really should be *avoided*.
+
+
+A list of templating/redering engines is available at:
+https://github.com/visionmedia/consolidate.js
+
+- Discussion on Client Side Templating:
+http://engineering.linkedin.com/frontend/client-side-templating-throwdown-mustache-handlebars-dustjs-and-more
+
+
 ### Which 3rd Party Modules Can/Should We Use?
 
 As appealing as it is to build everything from scratch, it makes sense to use
@@ -31,10 +62,10 @@ We need an agreed process for selecting 3rd party modules.
 
 - Is the module writtten in JavaScript (can we read the source)?
 - Does the module have 100% unit test coverage?
-- Is it stable?
-- Actively developed or collecting dust?
+- Is it **stable** (e.g. Travis build passing)?
+- **Actively developed** or collecting dust?
 
-Is it worth doing a flow/decision diagram for this...?
+Is it *worth* doing a flow/decision **diagram** for this...?
 
 ### Which Test Should We *Write* First?
 

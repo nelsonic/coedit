@@ -14,4 +14,4 @@ describe('Valens Core', function(){
       assert(V.readFile('hello') === 'hello');
     })
   })
-}) // end node env checks
+}) // 

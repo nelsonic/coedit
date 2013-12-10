@@ -1,8 +1,10 @@
-var assert = require('assert');
+// var express = require('express');
+var app = require('express')(),
+    ECT = require('ect');
 
-assert.throws(
-  function() {
-    throw new Error("Wrong value");
-  },
-  Error
-);
+
+app.get('/', function(req, res){
+  res.send('Hello World');
+});
+
+app.listen(4000);
