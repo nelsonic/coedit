@@ -32,7 +32,7 @@ should see that record displayed in the editor.
 ### Which Template Engine/Language Should We Use?
 
 While [**Jade**](http://jade-lang.com/) (the Express.js default engine) 
-is very *elegant*, it has several glaring issues:
+is very *elegant*, it has several *glaring issues*:
 
 - (Steep) **Learning Curve** for New Developers (new syntax to learn)
 - **Slow**er than alternatives (see: http://ectjs.com/#benchmark)
@@ -42,16 +42,22 @@ I went searching for *alternative* view engines and decided on
 [**DustJS**]()
 http://spalatnik.com/blog/?p=54
 
-Used [ECT](http://ectjs.com/) but it allows too much ***logic in views***
-which really should be *avoided*.
+Used [ECT](http://ectjs.com/) but it allows too much "***logic in views***"
+(which should be *avoided*) and does not have any unit tests 
+https://github.com/baryshev/ect so we can't rely on it to *not break*... 
 
 
-A list of templating/redering engines is available at:
+A list of express-compatible templating/redering engines is available at:
 https://github.com/visionmedia/consolidate.js
 
 - Discussion on Client Side Templating:
 http://engineering.linkedin.com/frontend/client-side-templating-throwdown-mustache-handlebars-dustjs-and-more
+Based on LinkedIn & PayPal's use of dust I was tempted to use it, but...
+the current node (express) module https://github.com/swider/express-dust 
+has **no unit tests**! (LinkedIn are not using dust with Node...)
 
+Further searching lead me to SWIG: https://github.com/paularmstrong/swig
+Which looks a lot more serious about quality.
 
 ### Which 3rd Party Modules Can/Should We Use?
 
