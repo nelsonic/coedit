@@ -38,26 +38,46 @@ is very *elegant*, it has several *glaring issues*:
 - **Slow**er than alternatives (see: http://ectjs.com/#benchmark)
 - **Server Only** (not *designed* for use in client-side)
 
-I went searching for *alternative* view engines and decided on 
-[**DustJS**]()
-http://spalatnik.com/blog/?p=54
-
-Used [ECT](http://ectjs.com/) but it allows too much "***logic in views***"
+In a previous project we 
+used [ECT](http://ectjs.com/) but it allows too much "***logic in views***"
 (which should be *avoided*) and does not have any unit tests 
 https://github.com/baryshev/ect so we can't rely on it to *not break*... 
-
 
 A list of express-compatible templating/redering engines is available at:
 https://github.com/visionmedia/consolidate.js
 
-- Discussion on Client Side Templating:
+- SWIG: https://github.com/paularmstrong/swig
+looks a lot more serious about quality.
+good documentation: http://paularmstrong.github.io/swig/
+
+- Dust.js: http://akdubya.github.io/dustjs/ the simplicity appeals to me.
+rather than having to type `<%= name %>` its just `{name}`
+and dust automatically escapes all content so risk of XSS is greatly reduced.
+we can have a watcher in the IDE for the use of un-escaping.
+
+- Handlebars would be an option: https://github.com/ericf/express3-handlebars
+but as the LinkedIn article above notes, dust offers all the advantages of 
+handlebars and mustache... so why not just use dust? :-D
+
+- underscore.js tempates:
+http://underscorejs.org/#template
+downside is that underscore allows *arbitrary javascript code execution* 
+`<% alert("pwnd!") %>` so we would need to do extra checking
+to confirm novice users are (accidentally) breaking things...
+
+Found this overview on the LinkedIn engineering blog:
+
+- Discussion on (Client Side) Templating:
 http://engineering.linkedin.com/frontend/client-side-templating-throwdown-mustache-handlebars-dustjs-and-more
+
 Based on LinkedIn & PayPal's use of dust I was tempted to use it, but...
 the current node (express) module https://github.com/swider/express-dust 
 has **no unit tests**! (LinkedIn are not using dust with Node...)
 
-Further searching lead me to SWIG: https://github.com/paularmstrong/swig
-Which looks a lot more serious about quality.
+I could work on retrospectively writing unit tests for express-dust
+or try and implement my own render engine using dust core ...
+
+
 
 ### Which 3rd Party Modules Can/Should We Use?
 
