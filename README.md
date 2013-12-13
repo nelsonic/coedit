@@ -60,7 +60,8 @@ but as the LinkedIn article above notes, dust offers all the advantages of
 handlebars and mustache... so why not just use dust? :-D
 
 - underscore.js tempates:
-http://underscorejs.org/#template
+http://underscorejs.org/#template 
+http://erickrdch.com/2012/05/underscore-and-node-js.html
 downside is that underscore allows *arbitrary javascript code execution* 
 `<% alert("pwnd!") %>` so we would need to do extra checking
 to confirm novice users are (accidentally) breaking things...
@@ -77,6 +78,8 @@ has **no unit tests**! (LinkedIn are not using dust with Node...)
 I could work on retrospectively writing unit tests for express-dust
 or try and implement my own render engine using dust core ...
 
+
+https://github.com/linkedin/dustjs/wiki/Dust-Tutorial
 
 
 ### Which 3rd Party Modules Can/Should We Use?
