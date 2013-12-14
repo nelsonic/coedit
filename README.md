@@ -82,6 +82,11 @@ or try and implement my own render engine using dust core ...
 https://github.com/linkedin/dustjs/wiki/Dust-Tutorial
 
 
+I tried rendering views with underscore templates.
+It works. see: https://github.com/caseywebdev/underscore-express/pull/1
+But I'm stubornly pursuing dust js because it looks simpler. ;-)
+
+
 ### Which 3rd Party Modules Can/Should We Use?
 
 As appealing as it is to build everything from scratch, it makes sense to use
