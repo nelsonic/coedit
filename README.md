@@ -46,6 +46,17 @@ https://github.com/baryshev/ect so we can't rely on it to *not break*...
 A list of express-compatible templating/redering engines is available at:
 https://github.com/visionmedia/consolidate.js
 
+- underscore.js tempates:
+http://underscorejs.org/#template 
+http://erickrdch.com/2012/05/underscore-and-node-js.html
+downside is that underscore allows *arbitrary javascript code execution* 
+`<% alert("pwnd!") %>` so we would need to do extra checking
+to confirm novice users are (accidentally) breaking things...
+
+I tried rendering views with underscore templates.
+It works. see: https://github.com/caseywebdev/underscore-express/pull/1
+But I'm *stubornly* pursuing dust.js because it looks more elegant... ;-)
+
 - SWIG: https://github.com/paularmstrong/swig
 looks a lot more serious about quality.
 good documentation: http://paularmstrong.github.io/swig/
@@ -59,12 +70,6 @@ we can have a watcher in the IDE for the use of un-escaping.
 but as the LinkedIn article above notes, dust offers all the advantages of 
 handlebars and mustache... so why not just use dust? :-D
 
-- underscore.js tempates:
-http://underscorejs.org/#template 
-http://erickrdch.com/2012/05/underscore-and-node-js.html
-downside is that underscore allows *arbitrary javascript code execution* 
-`<% alert("pwnd!") %>` so we would need to do extra checking
-to confirm novice users are (accidentally) breaking things...
 
 Found this overview on the LinkedIn engineering blog:
 
@@ -78,13 +83,11 @@ has **no unit tests**! (LinkedIn are not using dust with Node...)
 I could work on retrospectively writing unit tests for express-dust
 or try and implement my own render engine using dust core ...
 
+Decided to fork https://github.com/nelsonic/express-dust and try to improve it.
 
 https://github.com/linkedin/dustjs/wiki/Dust-Tutorial
 
 
-I tried rendering views with underscore templates.
-It works. see: https://github.com/caseywebdev/underscore-express/pull/1
-But I'm stubornly pursuing dust js because it looks simpler. ;-)
 
 
 ### Which 3rd Party Modules Can/Should We Use?
