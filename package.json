@@ -10,7 +10,7 @@
   "dependencies":{
     "express":"*",
     "express-dust":"*",
-    "underscore-express":"*"
+    "uinexpress":"*"
   },
   "devDependencies": {
     "mocha": "*",

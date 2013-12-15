@@ -1,10 +1,13 @@
-var express = require("express");
+var express = require("express"),
+        app = express();
 
-var app = express();
-app.set('views', __dirname + '/views');
-app.set('view engine', 'tmpl');
+app.configure(function () {
+  app.engine('html', require('uinexpress').__express)
+  app.set('view engine', 'html')
+  app.set('view options', { layout: false });
+});
 
-require('underscore-express')(app);
+// require('underscore-express')(app);
 
 app.get('/', function(req, res, next) {
     res.render('index', {
